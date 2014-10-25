@@ -10,8 +10,22 @@
 <body>
     <form id="form1" runat="server">
     <div>
+        <h1>Grant&#39;s Simple Recipes</h1>
+        <h2>Recipes with 5 ingredients or less!</h2>
+        <asp:HyperLink ID="HL_Home" runat="server" NavigateUrl="~/Default.aspx" CssClass="natigation">Home</asp:HyperLink>
+&nbsp;|
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/newRecipe.aspx" CssClass="natigation">Add a New Recipe</asp:HyperLink>
+&nbsp;|
+        <asp:HyperLink ID="HL_About" runat="server" NavigateUrl="~/about.aspx" CssClass="natigation">About Us</asp:HyperLink>
+&nbsp;|
+        <asp:HyperLink ID="HL_Contact" runat="server" NavigateUrl="~/contact.aspx" CssClass="natigation">Contact Us</asp:HyperLink>
+        <br />
     
-        <asp:SqlDataSource ID="sql_Recipes" runat="server" ConnectionString="<%$ ConnectionStrings:db_recipe %>" DeleteCommand="DELETE FROM [gbarnard_recipe_hw6] WHERE [recipeID] = @recipeID" InsertCommand="INSERT INTO [gbarnard_recipe_hw6] ([recipe_Name], [submitted_By], [Ingredient_1], [Ingredient_2], [Ingredient_3], [Ingredient_4], [Ingredient_5], [Preperation], [Notes]) VALUES (@recipe_Name, @submitted_By, @Ingredient_1, @Ingredient_2, @Ingredient_3, @Ingredient_4, @Ingredient_5, @Preperation, @Notes)" SelectCommand="SELECT * FROM [gbarnard_recipe_hw6]" UpdateCommand="UPDATE [gbarnard_recipe_hw6] SET [recipe_Name] = @recipe_Name, [submitted_By] = @submitted_By, [Ingredient_1] = @Ingredient_1, [Ingredient_2] = @Ingredient_2, [Ingredient_3] = @Ingredient_3, [Ingredient_4] = @Ingredient_4, [Ingredient_5] = @Ingredient_5, [Preperation] = @Preperation, [Notes] = @Notes WHERE [recipeID] = @recipeID">
+        <asp:SqlDataSource ID="sql_Recipes" runat="server" ConnectionString="<%$ ConnectionStrings:db_recipe %>" DeleteCommand="DELETE FROM [gbarnard_recipe_hw6] WHERE [recipeID] = @recipeID _
+                    " InsertCommand="INSERT INTO [gbarnard_recipe_hw6] ([recipe_Name], [submitted_By], [Ingredient_1], [Ingredient_2], [Ingredient_3], [Ingredient_4], [Ingredient_5], [Preperation], [Notes])  _ 
+                     VALUES (@recipe_Name, @submitted_By, @Ingredient_1, @Ingredient_2, @Ingredient_3, @Ingredient_4, @Ingredient_5, @Preperation, @Notes)" SelectCommand="SELECT * FROM [gbarnard_recipe_hw6]" UpdateCommand="UPDATE _
+                     [gbarnard_recipe_hw6] SET [recipe_Name] = @recipe_Name, [submitted_By] = @submitted_By, [Ingredient_1] = @Ingredient_1, [Ingredient_2] = @Ingredient_2, [Ingredient_3] = @Ingredient_3, [Ingredient_4] = @Ingredient_4, _ 
+                     [Ingredient_5] = @Ingredient_5, [Preperation] = @Preperation, [Notes] = @Notes WHERE [recipeID] = @recipeID">
             <DeleteParameters>
                 <asp:Parameter Name="recipeID" Type="Int32" />
             </DeleteParameters>
@@ -40,7 +54,7 @@
             </UpdateParameters>
         </asp:SqlDataSource>
         <br />
-        <asp:FormView ID="FormView1" runat="server" DataKeyNames="recipeID" DataSourceID="sql_Recipes" DefaultMode="Insert">
+        <asp:FormView ID="FormView1" runat="server" DataKeyNames="recipeID" DataSourceID="sql_Recipes" DefaultMode="Insert" HorizontalAlign="Center">
             <InsertItemTemplate>
                 <table>
                     <tr>
@@ -153,5 +167,10 @@
     
     </div>
     </form>
-</body>
+    <br />
+    <br />
+    <br />
+    <div class="footer" >&#169 2014 Software Development & Design<br />
+    </div>
+    </body>
 </html>

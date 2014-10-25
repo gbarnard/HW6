@@ -10,7 +10,16 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    
+    <h1>Grant&#39;s Simple Recipes</h1>
+        <h2>Recipes with 5 ingredients or less!</h2>
+        <asp:HyperLink ID="HL_Home" runat="server" NavigateUrl="~/Default.aspx" CssClass="natigation">Home</asp:HyperLink>
+&nbsp;|
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/newRecipe.aspx" CssClass="natigation">Add a New Recipe</asp:HyperLink>
+&nbsp;|
+        <asp:HyperLink ID="HL_About" runat="server" NavigateUrl="~/about.aspx" CssClass="natigation">About Us</asp:HyperLink>
+&nbsp;|
+        <asp:HyperLink ID="HL_Contact" runat="server" NavigateUrl="~/contact.aspx" CssClass="natigation">Contact Us</asp:HyperLink>
+        <br />
         <asp:SqlDataSource ID="Sql_RecipeData" runat="server" ConnectionString="<%$ ConnectionStrings:db_recipe %>" DeleteCommand="DELETE FROM [gbarnard_recipe_hw6] WHERE [recipeID] = @recipeID" InsertCommand="INSERT INTO [gbarnard_recipe_hw6] ([recipe_Name], [submitted_By], [Ingredient_1], [Ingredient_2], [Ingredient_3], [Ingredient_4], [Ingredient_5], [Preperation], [Notes]) VALUES (@recipe_Name, @submitted_By, @Ingredient_1, @Ingredient_2, @Ingredient_3, @Ingredient_4, @Ingredient_5, @Preperation, @Notes)" SelectCommand="SELECT * FROM [gbarnard_recipe_hw6] WHERE ([recipeID] = @recipeID)" UpdateCommand="UPDATE [gbarnard_recipe_hw6] SET [recipe_Name] = @recipe_Name, [submitted_By] = @submitted_By, [Ingredient_1] = @Ingredient_1, [Ingredient_2] = @Ingredient_2, [Ingredient_3] = @Ingredient_3, [Ingredient_4] = @Ingredient_4, [Ingredient_5] = @Ingredient_5, [Preperation] = @Preperation, [Notes] = @Notes WHERE [recipeID] = @recipeID">
             <DeleteParameters>
                 <asp:Parameter Name="recipeID" Type="Int32" />
@@ -45,7 +54,7 @@
         <br />
         <span class="deletedrecipe"><asp:Label ID="lbl_deletedRecipe" runat="server"></asp:Label></span>
         <br />
-        <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="recipeID" DataSourceID="Sql_RecipeData" Height="50px" Width="321px">
+        <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="recipeID" DataSourceID="Sql_RecipeData" Height="50px" Width="321px" HorizontalAlign="Center">
             <Fields>
                 <asp:BoundField DataField="recipe_Name" HeaderText="Recipe Name" SortExpression="recipe_Name" />
                 <asp:BoundField DataField="submitted_By" HeaderText="Submitted By" SortExpression="submitted_By" />
@@ -61,6 +70,8 @@
         </asp:DetailsView>
     
     </div>
+    <div class="footer" >&#169 2014 Software Development & Design<br />
+
     </form>
 </body>
 </html>
