@@ -53,13 +53,14 @@
             </UpdateParameters>
         </asp:SqlDataSource>
         <br />
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="sql_Recipes" Width="349px" DataKeyNames="recipeID" CssClass="mainBody" HorizontalAlign="Center">
+        <asp:GridView ID="GridView1"  CssClass="gridview" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="sql_Recipes" Width="349px" DataKeyNames="recipeID" HorizontalAlign="Center">
             <Columns>
                 <asp:BoundField DataField="recipe_Name" HeaderText="Recipe Name" SortExpression="recipe_Name" />
                 <asp:BoundField DataField="submitted_By" HeaderText="Submitted By" SortExpression="submitted_By" />
                 <asp:HyperLinkField DataNavigateUrlFields="recipeID" DataNavigateUrlFormatString="detailsview.aspx?recipeID={0}" Text="Select" />
             </Columns>
         </asp:GridView>
+        
         <br />
         
         <br />
@@ -67,7 +68,7 @@
         <br />
     
     </div>
-        <div class="footer" >&#169 2014 Software Development & Design<br />
+        <div class="footer" >&#169 2014 Software Development & Design<br /> </div>
     </form>
 </body>
 </html>

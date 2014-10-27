@@ -10,14 +10,14 @@ Partial Class contact
         Dim msg As New MailMessage
         Dim client As New SmtpClient
 
-        msg.To.Add("grant-barnard@uiowa.edu") 'destionation email address
+        msg.To.Add("michael-colbert@uiowa.edu") 'destionation email address
         msg.From = New MailAddress(senderEmail.Text) 'get the address from the textbox
         msg.Subject = "web contact form test" 'set the message subject line
         msg.Body = senderMessage.Text 'get the message body from the textbox
 
         client.Host = "smtp.gmail.com"
         client.Port = 587
-        client.Credentials = New NetworkCredential("gbarnard", "racewave21")
+        client.Credentials = New NetworkCredential("ui.6k183", "6k183U*I")
         client.EnableSsl = True
         client.Send(msg)
 
